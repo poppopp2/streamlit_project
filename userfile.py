@@ -108,7 +108,10 @@ def run_userfile():
         y_choice = st.selectbox('비교할 숫자 데이터를 선택하세요', num_columns_list)
         x_choice = st.selectbox('비교할 문자 데이터를 선택하세요', string_columns_list)
         chart_user=[x_choice,y_choice]
-        st.dataframe(df[[x_choice,y_choice]])
+        if x_choice in df.columns and y_choice in df.columns:
+            st.dataframe(df[[x_choice, y_choice]])
+        else:
+            st.error("문자데이터가 존재하지 않습니다.")
         data_limit=st.radio('데이터가 많아 차트 보기가 어렵다면 데이터의 갯수를 정해주세요',['그대로 보기','정렬해서 보기'], index=0)
 
 
