@@ -72,7 +72,7 @@ def run_userfile():
             numbers_list.append(columns_list_index)
 
         for x ,y in zip(numbers_list,columns_list):
-            st.text(f'선택하신 컬럼 {y}의 최대, 최소값이 포함된 행입니다.')
+            st.text(f'선택하신 컬럼 "{y}"의 최대, 최소값이 포함된 행입니다.')
             st.dataframe(df.iloc[x, :])
 
 
