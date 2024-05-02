@@ -98,15 +98,7 @@ def run_userfile():
 
 
         else:
-            st.text('컬럼은 2개이상 선택해야 합니다.')
-
-            pair_plot = sb.pairplot(data=df[columns_list])
-
-            # pairplot에 제목 추가
-            pair_plot.fig.suptitle("Pair Plot", y=1.02)
-
-            # Streamlit에 pairplot 표시
-            st.pyplot(pair_plot)
+            st.error('컬럼은 2개이상 선택해야 합니다.')
 
         string_df = df.select_dtypes(include=['object'])
         string_columns_list = string_df.columns
