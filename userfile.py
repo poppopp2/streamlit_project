@@ -71,9 +71,9 @@ def run_userfile():
             columns_list_index.append(df.loc[df[column] == df[column].min()].index[0])
             numbers_list.append(columns_list_index)
 
-        for i in numbers_list:
-            st.text(f'선택하신 컬럼 {columns_list}의 최대, 최소값이 포함된 행입니다.')
-            st.dataframe(df.iloc[i, :])
+        for x ,y in zip(numbers_list,columns_list):
+            st.text(f'선택하신 컬럼 {y}의 최대, 최소값이 포함된 행입니다.')
+            st.dataframe(df.iloc[x, :])
 
 
 
