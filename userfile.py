@@ -97,8 +97,8 @@ def run_userfile():
                 st.pyplot(pair_plot)
 
 
-            else:
-                st.text('컬럼은 2개이상 선택해야 합니다.')
+        else:
+            st.text('컬럼은 2개이상 선택해야 합니다.')
 
             pair_plot = sb.pairplot(data=df[columns_list])
 
