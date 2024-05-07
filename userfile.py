@@ -16,25 +16,26 @@ plt.rcParams['font.family'] = 'Malgun Gothic'  # 사용할 한글 폰트 설정
 
 
 
-def save_uploaded_file(directory, file, max_size):
+def save_uploaded_file(file, max_size):
     # 파일 크기 체크
     if file.size > max_size:
         st.error("파일 크기가 너무 큽니다. 5MB 이하의 파일만 업로드할 수 있습니다. 파일이 손상되어 출렵됩니다.")
 
-    if not os.path.exists(directory):
+    #배포하기 때문에 파일 저장 할 필요없음으로 삭제
+    '''if not os.path.exists(directory):
         os.makedirs(directory)
     
     # 파일 저장
     with open(os.path.join(directory, file.name), 'wb') as f:
         f.write(file.getbuffer())
     
-    st.success(f"{file.name}이 {directory}에 저장되었습니다.")
+    st.success(f"{file.name}이 {directory}에 저장되었습니다.")'''
 
 # 메인 코드
 def run_userfile():
     file = st.file_uploader("파일을 업로드하세요.", type=["csv"])
-    if file is not None:
-        save_uploaded_file("data", file, max_size=5*1024*1024)  # 최대 파일 크기
+    # if file is not None:
+    #     save_uploaded_file("data", file, max_size=5*1024*1024)  # 최대 파일 크기
     if file is not None:
         # 파일에서 데이터프레임으로 읽어오기
         df = pd.read_csv(file)
@@ -44,10 +45,10 @@ def run_userfile():
             st.warning("파일이 비어 있습니다.")
         else:
 
-            #4/30 6:04분 파일 업로드 했는데 파일 저장시 날짜로 안바뀜 목요일 수정할것
-            current_time = datetime.now()
-            new_filename = current_time.isoformat().replace(':', '_') + '.csv'
-            file.name = new_filename
+            # #4/30 6:04분 파일 업로드 했는데 파일 저장시 날짜로 안바뀜 목요일 수정할것
+            # current_time = datetime.now()
+            # new_filename = current_time.isoformat().replace(':', '_') + '.csv'
+            # file.name = new_filename
 
             st.write("Uploaded file:")
             st.dataframe(df)
