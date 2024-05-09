@@ -92,10 +92,10 @@ def run_userfile():
             #.상관계수 보여준다.
             st.dataframe(df[columns_list].corr())
 
-            combinations_list = list(combinations(columns_list, 2))
-            for pair in combinations_list:
-                pair_plot = sb.pairplot(data=df, vars=pair)
-                st.pyplot(pair_plot)
+            # combinations_list = list(combinations(columns_list, 2))
+            # for pair in combinations_list:
+            #     pair_plot = sb.pairplot(data=df, vars=pair)
+            #     st.pyplot(pair_plot)
 
 
         else:
