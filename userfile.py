@@ -52,6 +52,8 @@ def run_userfile():
 
             st.write("Uploaded file:")
             st.dataframe(df)
+            st.subheader('통계 정보')
+            st.write(df.describe())
 
         # 정수로 된 컬럼만 선택
         num_columns = df.select_dtypes(include=['int','float'])
