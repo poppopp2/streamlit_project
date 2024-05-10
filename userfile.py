@@ -21,7 +21,7 @@ def save_uploaded_file(file, max_size):
     if file.size > max_size:
         st.error("파일 크기가 너무 큽니다. 5MB 이하의 파일만 업로드할 수 있습니다. 파일이 손상되어 출렵됩니다.")
 
-    #배포하기 때문에 파일 저장 할 필요없음으로 삭제
+    #서버에 배포하기 때문에 파일 저장 할 필요없음으로 삭제
     '''if not os.path.exists(directory):
         os.makedirs(directory)
     
@@ -45,7 +45,6 @@ def run_userfile():
             st.warning("파일이 비어 있습니다.")
         else:
 
-            # #4/30 6:04분 파일 업로드 했는데 파일 저장시 날짜로 안바뀜 목요일 수정할것
             # current_time = datetime.now()
             # new_filename = current_time.isoformat().replace(':', '_') + '.csv'
             # file.name = new_filename
@@ -80,11 +79,8 @@ def run_userfile():
 
 
 
-
+        # 상관관계 차트 출력
         if len(columns_list) >= 1:
-            #1. 페어플롯을 그린다.
-            #todo : 1. pairplot 을 다른 라이브러리 이용해서 하는 방법
-            # pairplot 말고, 반복문으로 두 컬럼씩 관계를 차트로 그리는 방법
             pair_plot = sb.pairplot(data=df, vars=columns_list)
             pair_plot.fig.suptitle("corr",y=1.02)
             st.pyplot(pair_plot)
