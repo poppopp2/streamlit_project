@@ -3,7 +3,7 @@
 
 사용자가 CSV 파일을 업로드하면 해당 파일을 데이터프레임으로 읽어와서 상관관계 분석, 통계 및 시각화를 수행합니다.
 
-링크 : http://ec2-13-124-63-236.ap-northeast-2.compute.amazonaws.com:8505/
+링크 : http://ec2-3-36-87-46.ap-northeast-2.compute.amazonaws.com:8505/
 
 ## 사용 라이브러리
 
